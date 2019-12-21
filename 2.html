@@ -1,0 +1,50 @@
+<body>
+
+    <form>
+        <br>Username<br>
+        <input type="text" placeholder="Username" pattern="[a-z][0-9]{6}" title="Username harus berupa huruf kecil dan terdiri dari 6 karakter">
+        <script>
+            id = "Username"
+            var input = document.getElementById('Username');
+            input.oninvalid = functionn(event) {
+                event.target.setCustomValidity('Username harus berupa huruf kecil dan terdiri dari 6 karakter')
+            }
+            var input = document.getElementById('username');
+            var form = document.getElementById('form');
+            var elem = document.createElement('div');
+            elem.id = 'notify';
+            elem.style.display = 'none';
+            form.appendChild(elem);
+
+            input.addEventListener('invalid', function(event) {
+                event.preventDefault();
+                if (!event.target.validity.valid) {
+                    elem.textContent = 'Username harus berupa huruf kecil dan terdiri dari 6 karakter';
+                    elem.className = 'error';
+                    elem.style.display = 'block';
+
+                    input.className = 'invalid animated shake';
+                }
+            });
+        </script>
+        
+        <br>Email<br>
+        <input type="email" name="email" pattern="[a-z][0-9]" title="submit menggunakan huruf kecil">
+        
+        <br>Password<br>
+         <input type="password" id="psw" name="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Minimal 8 karakter, mengandung 1 huruf kapital dan angka " required>
+<br><br>
+        <input type="submit" button class="btn_style"></input>
+        <style>
+        .btn_style {
+            border: 1px solid #1E90FF;
+            background-color: rgb(0, 102, 255);
+            border-radius: 3px;
+            padding: 3px 10px;
+            box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+            color: white;
+        }
+        </style>
+
+    </form>
+</body>
